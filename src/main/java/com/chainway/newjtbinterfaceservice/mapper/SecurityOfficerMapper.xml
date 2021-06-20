@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--存储过程-->
+<mapper namespace="com.chainway.newjtbinterfaceservice.mapper.SecurityOfficerMapper">
+    <select id="Securityguard" parameterType="String" statementType="CALLABLE" resultType="java.lang.Boolean">
+        {
+            call PROC_Securityguard{
+                #{peopleid,mode=IN,jdbcType=VARCHAR}
+            } }
+    </select>
+
+    <select id="safetyofficerList" resultType="java.util.HashMap">
+        select inscode,
+               name,
+               sex,
+               idcard,
+               mobile,
+               address,
+               fingerprint,
+               drilicence,
+               fstdrilicdate,
+               dripermitted,
+               teachpermitted,
+               employstatus,
+               hiredate,
+               leavedate
+        from dbo.T_GJ_Securityguard
+        where peopleid = #{parentId}
+    </select>
+
+</mapper>

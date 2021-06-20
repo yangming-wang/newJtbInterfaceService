@@ -1,0 +1,36 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://127.0.0.1:1433;databaseName=GZPT
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: sa
+    password: chainway-123
+photo:
+  examinerFileUrl:
+
+certificate:
+  password:
+  version:
+
+ministryStandard:
+  nationwideImgUrl:
+
+provincialBureau:
+  sjurl:
+
+#CTFC:
+#  path: E:/
+#  DOMAIN_NAME:                #CN：用户姓名或域名
+#  COUNTRY_CODE:               #C：单位的两字母国家代码
+#  CITY:                       #L：城市或区域
+#  PROVINCE:                   #ST：省份或州
+#  SERIAL_NUMBER:              #序列号域
+#  SIG_AlG:                    #签名算法
+#  ENCRYPT_TYPE:               #加密类型
+#  ENCRYPT_NUM:                #加密位数
+#  PROVIDER:                   #提供人
+#  ORG:
+#    ORG_UNIT_NAME:              #OU：组织单位名称
+#    ORG_NAME:                   #O：组织名称
+#  VALID:
+#    START_TIME:                 #证书有效起始时间
+#    END_TIME:                   #证书有效截止时间
