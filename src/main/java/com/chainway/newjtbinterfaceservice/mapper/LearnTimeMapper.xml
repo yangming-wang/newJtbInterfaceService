@@ -10,4 +10,39 @@
                 #{studyLocusId,mode=IN,jdbcType=VARCHAR}
             } }
     </select>
+
+    <select id="LearnTimeget" parameterType="String" resultType="java.util.HashMap">
+        select a.*,
+               c.studycode
+        FROM (select StudyLocusId,
+                     inscode,
+                     stunum,
+                     coachnum,
+                     simunum,
+                     sim,
+                     photo1,
+                     photo2,
+                     photo3,
+                     carnum,
+                     'A0008'                   as platnum,
+                     recnum,
+                     subjcode,
+                     starttime,
+                     endtime,
+                     CAST(duration as NUMERIC) AS duration,
+                     mileage,
+                     avevelocity,
+                     coacmt,
+                     total,
+                     part1,
+                     part2,
+                     part3,
+                     part4,
+                     subject
+              from dbo.T_GJ_ClassRecord
+              where StudyLocusId = #{studyLocusId})
+                 AS a
+                 LEFT OUTER JOIN T_GJ_Student b on a.stunum = b.stunum
+                 LEFT OUTER JOIN T_CP_Study c on b.studentid = c.StudyId
+    </select>
 </mapper>
